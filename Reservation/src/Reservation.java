@@ -5,34 +5,33 @@ public class Reservation {
 	boolean isConfirmed;
 
 	public Reservation(int count, int capacity, boolean open) {
-		if (count < 1 || count>8) {
+		if (count < 1 || count > 8) {
 			System.out.println("Invalid reservation!");
-		}
-		else {
-		guestCount = count;
-		restaurantCapacity = capacity;
-		isRestaurantOpen = open;
+		} else {
+			guestCount = count;
+			restaurantCapacity = capacity;
+			isRestaurantOpen = open;
 		}
 	}
+
 	public void confirmedReservation() {
 		if ((restaurantCapacity >= guestCount) && isRestaurantOpen) {
 			System.out.println("Reservation confirmed");
 			isConfirmed = true;
-		}
-		else {
+		} else {
 			System.out.println("Reservation denied");
 			isConfirmed = false;
 		}
 	}
+
 	public void informUser() {
 		if (!isConfirmed) {
 			System.out.println("Unable to confirm reservation, please contact restaurant.");
-		}
-		else {
-		System.out.println("Please enjoy your meal!");
+		} else {
+			System.out.println("Please enjoy your meal!");
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		Reservation partyOfThree = new Reservation(3, 12, true);
 		Reservation partyOfFour = new Reservation(4, 3, true);
@@ -46,7 +45,6 @@ public class Reservation {
 		partyOfNine.informUser();
 		partyOfFive.confirmedReservation();
 		partyOfFive.informUser();
-
 	}
 
 }
